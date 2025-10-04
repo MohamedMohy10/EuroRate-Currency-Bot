@@ -5,17 +5,7 @@
 - 🔎 Query rates on demand (`/rate EUR USD`)
 - 📩 Subscribe to live currency exchange rate updates (e.g. EUR/USD, EUR/GBP)  
 - ⚙️ Manage subscriptions (`/subscribe`, `/unsubscribe`, `/subscriptions`)  
-- ⏰ Automatically receive daily updates at **9:00 AM** (configurable)  
----
-## Usage  
-### 💬 Bot commands:
-| Command | Description |
-|----------|-------------|
-| `/start` | Initiation & Show help menu |
-| `/rate EUR USD` | Get latest exchange rate |
-| `/subscribe EUR USD` | Subscribe to updates |
-| `/subscriptions` | List active subscriptions |
-| `/unsubscribe EUR USD` | Remove subscription |
+- ⏰ Automatically receive daily updates at **9:00 AM** (configurable)
 ---
 ## Architecture
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
@@ -38,7 +28,16 @@ User ↔ Telegram Bot ↔ FastAPI ↔ PostgreSQL
 ↕
 Celery Worker + Beat ↔ Redis
 ```
-
+---
+## Usage  
+### 💬 Bot commands:
+| Command | Description |
+|----------|-------------|
+| `/start` | Initiation & Show help menu |
+| `/rate EUR USD` | Get latest exchange rate |
+| `/subscribe EUR USD` | Subscribe to updates |
+| `/subscriptions` | List active subscriptions |
+| `/unsubscribe EUR USD` | Remove subscription |
 ---
 
 ## Local Development
