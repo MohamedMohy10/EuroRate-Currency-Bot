@@ -1,33 +1,41 @@
 # EuroRate Currency Bot
 
-A Telegram bot + FastAPI backend that lets users:
-
+## ⚙️ Features (Currently only EUR-USD \ EUR-GBP) 
+- ✅ Get real-time exchange rates (via [Frankfurter API](https://www.frankfurter.app/))  
+- 🔎 Query rates on demand (`/rate EUR USD`)
 - 📩 Subscribe to live currency exchange rate updates (e.g. EUR/USD, EUR/GBP)  
-- 🔎 Query rates on demand (`/rate EUR USD`)  
 - ⚙️ Manage subscriptions (`/subscribe`, `/unsubscribe`, `/subscriptions`)  
 - ⏰ Automatically receive daily updates at **9:00 AM** (configurable)  
 
-The project is built using **FastAPI, Celery, Redis, PostgreSQL, and Docker**.
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![Celery](https://img.shields.io/badge/Celery-%2300C853.svg?style=for-the-badge&logo=celery&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Telegram](https://img.shields.io/badge/Telegram_Bot_API-0088CC?style=for-the-badge&logo=telegram&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
 ---
-
-## ⚙️ Features
-
-- ✅ Subscribe/unsubscribe to currency pairs (Currently only EUR-USD \ EUR-GBP) 
-- ✅ Get real-time exchange rates (via [Frankfurter API](https://www.frankfurter.app/))  
-- ✅ Automatic daily updates via Celery Beat   
-- ✅ Fully containerized with Docker Compose  
-
+## Usage  
+### 💬 Bot commands:
+| Command | Description |
+|----------|-------------|
+| `/start` | Initiation & Show help menu |
+| `/rate EUR USD` | Get latest exchange rate |
+| `/subscribe EUR USD` | Subscribe to updates |
+| `/subscriptions` | List active subscriptions |
+| `/unsubscribe EUR USD` | Remove subscription |
 ---
 
 ## Architecture
 
-- **FastAPI (web)** → Handles subscriptions & REST API  
-- **Telegram Bot** → Interacts with users (`/subscribe`, `/rate`, etc.)  
-- **Celery Worker** → Fetches currency rates and processes background jobs  
-- **Celery Beat Scheduler** → Schedules periodic tasks (daily updates)  
-- **PostgreSQL** → Stores user subscriptions & rates  
-- **Redis** → Message broker for Celery  
+- **FastAPI** – backend REST API for currency rates and subscriptions  
+- **PostgreSQL** – stores subscriptions and exchange rate history  
+- **Redis** – broker for Celery tasks  
+- **Celery Worker** – fetches rates from [Frankfurter API](https://www.frankfurter.app/)  
+- **Celery Beat** – schedules periodic jobs (fetch rates + notify subscribers)  
+- **Telegram Bot** – user interface via chat commands  
+- **Docker Compose** – orchestrates services  
 ```
 User ↔ Telegram Bot ↔ FastAPI ↔ PostgreSQL
 ↕
@@ -65,27 +73,11 @@ start services
 docker-compose up --build
 ```
 
-## 📬 Deployment
+This will spin up:
 
-🐳 **Containerized with Docker** → ready for **Fly.io**, **Railway**, **Render**, or **AWS ECS**
-
-📦 **Use managed PostgreSQL/Redis** for production
-
----
-
-## 🛠️ Tech Stack
-
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
-![Celery](https://img.shields.io/badge/Celery-%2300C853.svg?style=for-the-badge&logo=celery&logoColor=white)
-![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![Telegram](https://img.shields.io/badge/Telegram_Bot_API-0088CC?style=for-the-badge&logo=telegram&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-
-- **FastAPI** – Web framework  
-- **Celery** – Task queue  
-- **Redis** – Message broker  
-- **PostgreSQL** – Database  
-- **Docker Compose** – containerization 
-- **Telegram Bot API** – Messaging
+- web (FastAPI app)
+- db (Postgres database)
+- redis (Celery broker)
+- worker (Celery worker)
+- beat (Celery scheduler)
+- bot (Telegram bot)
