@@ -30,11 +30,11 @@ The project is built using **FastAPI, Celery, Redis, PostgreSQL, and Docker**.
 - **Celery Beat Scheduler** → Schedules periodic tasks (daily updates)  
 - **PostgreSQL** → Stores user subscriptions & rates  
 - **Redis** → Message broker for Celery  
-
+```
 User ↔ Telegram Bot ↔ FastAPI ↔ PostgreSQL
 ↕
 Celery Worker + Beat ↔ Redis
-
+```
 
 ---
 
@@ -45,15 +45,13 @@ Celery Worker + Beat ↔ Redis
 - Python 3.10+ (if running outside Docker)  
 - A **Telegram bot token** (create via [@BotFather](https://t.me/BotFather))  
 
-### Setup
+## ⚙️ Setup
 
 Clone this repo:
 ```bash
 git clone https://github.com/<your-username>/EuroRate-Currency-Bot.git
 cd currency-subscription-bot
 ```
-
-## ⚙️ Setup
 
 Create a `.env` file in the root:
 
