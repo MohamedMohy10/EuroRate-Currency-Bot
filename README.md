@@ -13,11 +13,9 @@ The project is built using **FastAPI, Celery, Redis, PostgreSQL, and Docker**.
 
 ## ⚙️ Features
 
-- ✅ Subscribe/unsubscribe to currency pairs  
+- ✅ Subscribe/unsubscribe to currency pairs (Currently only EUR-USD \ EUR-GBP) 
 - ✅ Get real-time exchange rates (via [Frankfurter API](https://www.frankfurter.app/))  
-- ✅ Automatic daily updates via Celery Beat  
-- ✅ Persistence with PostgreSQL  
-- ✅ Redis as Celery broker  
+- ✅ Automatic daily updates via Celery Beat   
 - ✅ Fully containerized with Docker Compose  
 
 ---
@@ -89,5 +87,5 @@ docker-compose up --build
 - **Celery** – Task queue  
 - **Redis** – Message broker  
 - **PostgreSQL** – Database  
-- **Docker Compose** – Service orchestration  
+- **Docker Compose** – containerization 
 - **Telegram Bot API** – Messaging
