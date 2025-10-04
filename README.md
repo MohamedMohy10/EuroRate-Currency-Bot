@@ -1,4 +1,4 @@
-# 📊 Currency Subscription Bot
+# EuroRate Currency Bot
 
 A Telegram bot + FastAPI backend that lets users:
 
@@ -22,7 +22,7 @@ The project is built using **FastAPI, Celery, Redis, PostgreSQL, and Docker**.
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 - **FastAPI (web)** → Handles subscriptions & REST API  
 - **Telegram Bot** → Interacts with users (`/subscribe`, `/rate`, etc.)  
@@ -38,7 +38,7 @@ Celery Worker + Beat ↔ Redis
 
 ---
 
-## 🚀 Local Development
+## Local Development
 
 ### Prerequisites
 - Docker & Docker Compose installed  
