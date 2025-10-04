@@ -6,15 +6,6 @@
 - 📩 Subscribe to live currency exchange rate updates (e.g. EUR/USD, EUR/GBP)  
 - ⚙️ Manage subscriptions (`/subscribe`, `/unsubscribe`, `/subscriptions`)  
 - ⏰ Automatically receive daily updates at **9:00 AM** (configurable)  
-
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
-![Celery](https://img.shields.io/badge/Celery-%2300C853.svg?style=for-the-badge&logo=celery&logoColor=white)
-![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![Telegram](https://img.shields.io/badge/Telegram_Bot_API-0088CC?style=for-the-badge&logo=telegram&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-
 ---
 ## Usage  
 ### 💬 Bot commands:
@@ -26,8 +17,14 @@
 | `/subscriptions` | List active subscriptions |
 | `/unsubscribe EUR USD` | Remove subscription |
 ---
-
 ## Architecture
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![Celery](https://img.shields.io/badge/Celery-%2300C853.svg?style=for-the-badge&logo=celery&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Telegram](https://img.shields.io/badge/Telegram_Bot_API-0088CC?style=for-the-badge&logo=telegram&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
 - **FastAPI** – backend REST API for currency rates and subscriptions  
 - **PostgreSQL** – stores subscriptions and exchange rate history  
