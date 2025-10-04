@@ -1,0 +1,68 @@
+version: "3.9"
+
+services:
+  web:
+    build: .
+    container_name: fastapi_app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      - redis
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/currency_db
+      - REDIS_URL=redis://redis:6379/0
+
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: currency_db
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:7
+    container_name: redis_broker
+    restart: always
+    ports:
+      - "6379:6379"
+
+  worker:
+    build: .
+    command: celery -A tasks.worker worker --loglevel=info
+    depends_on:
+      - db
+      - redis
+      - web
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+
+  beat:
+    build: .
+    command: celery -A tasks.scheduler beat --loglevel=info
+    depends_on:
+      - db
+      - redis
+      - worker
+      - web
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+      - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+
+  bot:
+    build: .
+    command: python bot/telegram_bot.py
+    depends_on:
+      - web
+    environment:
+      TELEGRAM_BOT_TOKEN: "${TELEGRAM_BOT_TOKEN}"
+
+volumes:
+  pgdata:

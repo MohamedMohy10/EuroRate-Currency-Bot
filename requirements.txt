@@ -8,3 +8,9 @@ redis
 celery[redis]
 python-dotenv
 pydantic
+SQLAlchemy==2.0.22
+psycopg2-binary==2.9.9
+alembic==1.12.1
+celery==5.3.6
+requests==2.31.0
+python-telegram-bot==20.6

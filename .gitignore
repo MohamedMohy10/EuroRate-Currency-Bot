@@ -1,5 +1,104 @@
-venv/
+# ------------------------
+# Python
+# ------------------------
 __pycache__/
-*.pyc
-.DS_Store
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+venv/
+env/
+.venv/
+ENV/
+
+# Byte-compiled / cache
+.pytest_cache/
+.mypy_cache/
+.dmypy.json
+.cache/
+.pyre/
+.pytype/
+
+# Logs
+*.log
+
+# ------------------------
+# Testing / Coverage
+# ------------------------
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.tox/
+.nox/
+
+# ------------------------
+# Packaging / Build
+# ------------------------
+dist/
+build/
+*.egg-info/
+.eggs/
+MANIFEST
+
+# ------------------------
+# Environment variables / secrets
+# ------------------------
 .env
+.env.*
+*.key
+*.pem
+
+# ------------------------
+# Databases / Dumps
+# ------------------------
+*.db
+*.sqlite3
+*.sql
+*.dump
+
+# ------------------------
+# Docker
+# ------------------------
+*.pid
+*.seed
+*.pid.lock
+docker-compose.override.yml
+docker-compose.*.yml
+
+# ------------------------
+# Editors / IDEs
+# ------------------------
+.vscode/
+.idea/
+*.swp
+*~
+.project
+.pydevproject
+
+# ------------------------
+# OS files
+# ------------------------
+.DS_Store
+Thumbs.db
+
+# ------------------------
+# Postgres local data (Docker volumes)
+# ------------------------
+pgdata/
+postgres_data/
+
+# ------------------------
+# Celery
+# ------------------------
+celerybeat-schedule
+celerybeat.pid
+
+# ------------------------
+# Logs directory
+# ------------------------
+logs/
